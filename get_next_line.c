@@ -6,9 +6,11 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:05:40 by kheynes           #+#    #+#             */
-/*   Updated: 2019/07/02 12:23:35 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/07/04 15:29:06 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 int	get_next_line(const int fd, char **line)
 {
