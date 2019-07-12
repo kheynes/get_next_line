@@ -6,12 +6,18 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:05:40 by kheynes           #+#    #+#             */
-/*   Updated: 2019/07/04 15:29:06 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/07/12 14:29:28 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	get_next_line(const int fd, char **line)
+int	main(int argc, char **argv)
 {
+	char c;
+
+	c = read(0, char, BUFF_SIZE);
+	write(1, c, 1);
+
+	return (0);
 }
