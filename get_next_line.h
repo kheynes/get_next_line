@@ -6,7 +6,7 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 10:51:01 by kheynes           #+#    #+#             */
-/*   Updated: 2019/07/15 08:24:28 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/07/22 15:33:07 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 1
 # include "libft/libft.h"
-
-/*typedef struct	s_gnl
-{
-	int				fd;
-	char			*line;
-	struct s_gnl	*next;
-}				t_gnl;*/
 
 int				get_next_line(const int fd, char **line);
 #endif
