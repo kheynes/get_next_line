@@ -14,7 +14,12 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-int main()
+int	get_next_line(const int fd, char **line)
+{
+
+}
+
+/*int main()
 {
 	int		fd;
 	//int		n;
@@ -37,4 +42,4 @@ int main()
 	//ft_strncpy(s, p, BUFF_SIZE);
 	//printf ("%s", s);
 	return (0);
-}
+}*/
