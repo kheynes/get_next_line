@@ -6,7 +6,7 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:05:40 by kheynes           #+#    #+#             */
-/*   Updated: 2019/07/22 15:28:28 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/07/29 10:52:15 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 
 int	get_next_line(const int fd, char **line)
 {
+	static char	*buf;
+	int			*r;
+	char		*s;
+
+	*buf = NULL;
+	if (!line || fd < 0)
+		return (-1);
+	if (!buf)
+		buf = ft_strnew(0);
+	r = 1;
 
 }
 
