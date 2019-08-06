@@ -6,21 +6,37 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:05:40 by kheynes           #+#    #+#             */
-/*   Updated: 2019/07/29 15:59:56 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/08/06 16:17:10 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
 
-int	get_next_line(const int fd, char **line)
+static char	*increasebuf(const int fd, char *buf, int *r)
 {
-	static char	*buf;
-	int			*r;
+	char tmp[BUFF_SIZE + 1];
+	char *tmp2;
+
+	*r = read(fd, tmp, BUFF_SIZE);
+	if (*r < BUFF_SIZE && tmp[*r - 1] != '\n')
+	{
+		tmp[*r] = '\n';
+		tmp[*r + 1] = '\0';
+	}
+	else
+		tmp[*r] = '\0';
+	tmp2 = buf;
+	buf = ft_strjoin(buf, tmp);
+	ft_strdel(&tmp2);
+	return (buf);
+}
+
+int			get_next_line(const int fd, char **line)
+{
+	static char	*buf = NULL;
+	int			r;
 	char		*s;
 
-	*buf = NULL;
 	if (!line || fd < 0)
 		return (-1);
 	if (!buf)
@@ -28,30 +44,16 @@ int	get_next_line(const int fd, char **line)
 	r = 1;
 	while (r < 0)
 	{
-
-}
-
-/*int main()
-{
-	int		fd;
-	//int		n;
-	char	*buff;
-	char	*store1;
-	char	*store2;
-
-	buff = (char *)malloc(sizeof(char) * BUFF_SIZE + 1);
-	store2 = (char *)malloc(sizeof(char) * 1);
-	store2[0] = '\0';
-	fd = open("test.txt", O_RDONLY);
-	while (read(fd, buff, BUFF_SIZE))
-	{
-		store1 = ft_strnew(BUFF_SIZE);
-		buff[BUFF_SIZE + 1] = '\0';
-		ft_strncpy(store1, buff, BUFF_SIZE);
-		printf("%s", ft_strjoin(store2, store1));
+		if ((s = ft_strchr(buf, '\n')) != NULL)
+		{
+			*s = 0;
+			*line = ft_strdup(buf);
+			ft_memmove(buf, s + 1, ft_strlen(s + 1) + 1);
+			return (1);
+		}
+		buf = increasebuf(fd, buf, &r);
 	}
-	//s = ft_strnew(BUFF_SIZE);
-	//ft_strncpy(s, p, BUFF_SIZE);
-	//printf ("%s", s);
-	return (0);
-}*/
+	if (r == 0)
+		*line = ft_strnew(0);
+	return (r);
+}
