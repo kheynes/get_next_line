@@ -6,7 +6,7 @@
 /*   By: kheynes <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:05:40 by kheynes           #+#    #+#             */
-/*   Updated: 2019/08/20 14:22:09 by kheynes          ###   ########.fr       */
+/*   Updated: 2019/08/23 02:40:01 by kheynes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ static int	gnl_return(char **s, char **line, int ret, int fd)
 		return (add_next_line(&s[fd], line));
 }
 
-int	get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
-	int		ret;
+	int			ret;
 	static char	*s[MAX_FD];
 	char		buff[BUFF_SIZE + 1];
 	char		*tmp;
